@@ -29,6 +29,7 @@ Console.WriteLine($"Start listening for @{me.Username}");
 Console.ReadLine();
 
 // stop the bot
+
 cts.Cancel();
 
 Task PollingErrorHandler(ITelegramBotClient bot, Exception ex, CancellationToken ct)
@@ -57,6 +58,7 @@ async Task HandleUpdateAsync(ITelegramBotClient bot, Update update, Cancellation
 }
 
 // for this method to be called, you need to enable "Inline mode" on in BotFather
+
 async Task BotOnInlineQueryReceived(ITelegramBotClient botClient, InlineQuery inlineQuery)
 {
     var results = new List<InlineQueryResult>();
@@ -84,6 +86,7 @@ async Task BotOnInlineQueryReceived(ITelegramBotClient botClient, InlineQuery in
 }
 
 // for this method to be called, you need to enable "Inline feedback" in BotFather (100% if you want to know all your users choices)
+
 Task BotOnChosenInlineResultReceived(ITelegramBotClient botClient, ChosenInlineResult chosenInlineResult)
 {
     if (uint.TryParse(chosenInlineResult.ResultId, out uint index) && index < articleNames.Length)
