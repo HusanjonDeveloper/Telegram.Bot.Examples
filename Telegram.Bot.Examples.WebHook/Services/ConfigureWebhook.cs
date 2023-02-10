@@ -29,7 +29,8 @@ public class ConfigureWebhook : IHostedService
         // If you'd like to make sure that the webhook was set by you, you can specify secret data
         // in the parameter secret_token. If specified, the request will contain a header
         // "X-Telegram-Bot-Api-Secret-Token" with the secret token as content.
-        var webhookAddress = $"{_botConfig.HostAddress}{_botConfig.Route}";
+       
+       var webhookAddress = $"{_botConfig.HostAddress}{_botConfig.Route}";
         _logger.LogInformation("Setting webhook: {WebhookAddress}", webhookAddress);
         await botClient.SetWebhookAsync(
             url: webhookAddress,
@@ -44,7 +45,9 @@ public class ConfigureWebhook : IHostedService
         var botClient = scope.ServiceProvider.GetRequiredService<ITelegramBotClient>();
 
         // Remove webhook on app shutdown
-        _logger.LogInformation("Removing webhook");
+      
+      _logger.LogInformation("Removing webhook");
         await botClient.DeleteWebhookAsync(cancellationToken: cancellationToken);
+    
     }
 }
