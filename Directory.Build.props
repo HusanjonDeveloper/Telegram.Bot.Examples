@@ -1,6 +1,7 @@
 <Project>
 
   <PropertyGroup>
+
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <AnalysisMode>recommended</AnalysisMode>
     <AnalysisLevel>latest-all</AnalysisLevel>
